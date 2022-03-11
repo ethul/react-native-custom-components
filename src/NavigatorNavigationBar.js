@@ -141,6 +141,7 @@ class NavigatorNavigationBar extends React.Component {
       var props = this._getReusableProps(componentName, index);
       if (component && interpolate[componentName](props.style, amount)) {
         props.pointerEvents = props.style.opacity === 0 ? 'none' : 'box-none';
+        props.style.left = isNaN(props.style.left) ? 0 : props.style.left;
         component.setNativeProps(props);
       }
     }, this);
@@ -160,9 +161,13 @@ class NavigatorNavigationBar extends React.Component {
     };
     var navState = this.props.navState;
     var components = navState.routeStack.map((route, index) =>
-      COMPONENT_NAMES.map(componentName =>
-        this._getComponent(componentName, route, index)
-      )
+      COMPONENT_NAMES.map(componentName => {
+        var el = this._getComponent(componentName, route, index);
+
+        return el && React.cloneElement(el, Object.assign({
+          key: route.__navigatorRouteID + '-' + componentName + '-' + index
+        }, el.props));
+      })
     );
 
     return (
