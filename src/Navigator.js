@@ -35,8 +35,9 @@ import {
   StyleSheet,
   TVEventHandler,
   View,
-  ViewPropTypes,
 } from 'react-native';
+
+import {ViewPropTypes} from 'deprecated-react-native-prop-types';
 
 var AnimationsDebugModule = NativeModules.AnimationsDebugModule;
 var InteractionMixin = require('./InteractionMixin');

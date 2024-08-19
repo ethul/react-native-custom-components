@@ -32,8 +32,8 @@ import {
   Platform,
   StyleSheet,
   View,
-  ViewPropTypes,
 } from 'react-native';
+import {ViewPropTypes} from 'deprecated-react-native-prop-types';
 var PropTypes = require('prop-types');
 
 var guid = require('./guid');
