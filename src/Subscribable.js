@@ -40,7 +40,7 @@ var Subscribable = {};
 
 Subscribable.Mixin = {
 
-  UNSAFE_componentWillMount: function() {
+  componentDidMount: function() {
     this._subscribableSubscriptions = [];
   },
 
