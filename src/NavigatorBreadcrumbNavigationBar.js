@@ -180,7 +180,7 @@ class NavigatorBreadcrumbNavigationBar extends React.Component {
     this._setPropsIfExists('right_' + index, props);
   }
 
-  componentWillMount() {
+  UNSAFE_componentWillMount() {
     this._reset();
   }
 
