@@ -28,5 +28,5 @@
 const Navigator = require('./Navigator');
 
 module.exports = {
-  Navigator,
+  Navigator: Navigator.default,
 };
